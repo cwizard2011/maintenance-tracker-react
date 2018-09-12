@@ -1,30 +1,38 @@
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
-  entry: ['./src/index.js'],
+  entry: './client/src/index.jsx',
   output: {
-    path: __dirname,
-    publicPath: '/',
-    filename: 'bundle.js'
+    path: path.join(__dirname, 'client', 'public', 'dist'),
+    filename: 'bundle.js',
   },
   module: {
-    loaders: [
+    rules: [
       {
+        loader: 'babel-loader',
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['react', 'es2015', 'stage-1']
-        }
-      }
-    ]
+      },
+      {
+        test: /\.s?css$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+    ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx'],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './client/public/index.html',
+    }),
+  ],
+  devtool: 'cheap-module-eval-source-map',
   devServer: {
+    contentBase: path.join(__dirname, 'client', 'public'),
+    publicPath: '/dist/',
     historyApiFallback: true,
-    contentBase: './',
-    watchOptions: {
-      aggregateTimeout: 300,
-      poll: 1000
-    }
-  }
+  },
+  mode: 'development',
 };
