@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+import Home from './Home';
+import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 // eslint-disable-next-line react/prefer-stateless-function
-class NavBar extends Component {
+class App extends Component {
   render() {
     return (
       <div>
-        Navigation component. This works
+        <Home />
       </div>
     );
   }
 }
-export default NavBar;
+
+export default App;

@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 
 // eslint-disable-next-line react/prefer-stateless-function
-class NavBar extends Component {
+class ForgetPassword extends Component {
   render() {
     return (
       <div>
-        Navigation component. This works
+        Forget password form component works
       </div>
     );
   }
 }
-export default NavBar;
+export default ForgetPassword;
+

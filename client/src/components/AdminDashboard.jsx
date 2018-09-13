@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 // eslint-disable-next-line react/prefer-stateless-function
-class NavBar extends Component {
+class AdminDashboard extends Component {
   render() {
     return (
       <div>
-        Navigation component. This works
+        Admin dashboard works
       </div>
     );
   }
 }
-export default NavBar;
+export default AdminDashboard;
