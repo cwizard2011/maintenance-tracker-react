@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
 // eslint-disable-next-line react/prefer-stateless-function
-class NavBar extends Component {
+class UserDashboard extends Component {
   render() {
     return (
       <div>
-        Navigation component. This works
+        This is user Dashboard, router works
       </div>
     );
   }
 }
-export default NavBar;
+export default UserDashboard;
