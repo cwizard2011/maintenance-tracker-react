@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import NavBar from './NavBar';
-import Login from './Login';
-import SignupForm from './SignupForm';
-import ForgetPassword from './ForgetPassword';
+import HomeBody from './HomeBody';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class Home extends Component {
@@ -10,9 +8,7 @@ class Home extends Component {
     return (
       <div>
         <NavBar />
-        <Login />
-        <SignupForm />
-        <ForgetPassword />
+        <HomeBody />
       </div>
     );
   }
