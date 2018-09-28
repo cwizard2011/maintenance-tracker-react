@@ -10,6 +10,7 @@ export default () => {
   const store = createStore(
     combineReducers({
       userRegistration: AuthReducers.signup,
+      userLogin: AuthReducers.signin,
     }),
     composeEnhancers(applyMiddleware(thunk)),
   );
