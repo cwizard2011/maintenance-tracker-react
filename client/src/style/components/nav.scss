@@ -22,6 +22,7 @@ nav {
 		&:hover {
 			&:not(:first-child) {
 				color: $color_5;
+				cursor: pointer;
 			}
 		}
 		&:not(:first-child) {

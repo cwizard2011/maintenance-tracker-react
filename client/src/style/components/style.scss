@@ -73,6 +73,18 @@ body {
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
+$color_1: #555;
+$background_color_1: rgba(255,255,255,0.8);
+
+.text{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	font-size: 50px;
+	transform: translate(-50%,-50%);
+	-ms-transform: translate(-50%,-50%);
+}
+
 .icon-font {
   font-size: 24px;
 }
@@ -119,8 +131,10 @@ footer {
 	bottom: 0;
 	left: 0;
 }
-button {
+.button-link {
+	background-color: $background_color_1;
 	border:none;
+	cursor: pointer;
 }
 .sort-panel {
 	display: flex;

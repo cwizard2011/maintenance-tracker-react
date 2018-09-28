@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { browserHistory } from 'react-router';
+import history from './../utils/history';
 
 /**
  * secure front-end token
@@ -27,7 +27,7 @@ export default class AuthToken {
  */
   static deleteToken() {
     localStorage.removeItem('user');
-    browserHistory.push('/');
+    history.push('/');
     window.location.reload();
   }
 }

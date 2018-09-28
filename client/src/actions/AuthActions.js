@@ -1,16 +1,8 @@
 import axios from 'axios';
-import { browserHistory } from 'react-router';
-
+import history from './../utils/history';
 import AuthToken from '../utils/AuthToken';
+import url from '../utils/config';
 import * as actionTypes from './types';
-
-const url = 'https://peter-maintenance-app.herokuapp.com/api/v1';
-const message = document.getElementById('message');
-const errorFirstname = document.getElementById('error-firstname');
-const errorLastname = document.getElementById('error-lastname');
-const errorUsername = document.getElementById('error-username');
-const errorEmail = document.getElementById('error-email');
-
 
 /**
  * @class UserActions
@@ -49,7 +41,7 @@ export default class Authentication {
           });
           AuthToken.setToken(response.data.token);
           localStorage.setItem('user', JSON.stringify(response.data));
-          browserHistory.push('/dashboard');
+          history.push('/dashboard');
         })
         .catch((err) => {
           if (err.response === 500) {
@@ -64,6 +56,38 @@ export default class Authentication {
             });
           }
           return (err.response.data.message);
+        });
+    };
+  }
+  static login({ username, password, email }) {
+    return (dispatch) => {
+      dispatch({ type: 'LOGIN_BEGINS' });
+      return axios.post(`${url}/auth/login`, {
+        username,
+        email,
+        password,
+      })
+        .then((response) => {
+          dispatch({ type: 'LOGIN_SUCCESSFUL', payload: response.data });
+          AuthToken.setToken(response.data.token);
+          localStorage.setItem(
+            'user',
+            JSON.stringify(response.data),
+          );
+          history.push('/dashboard');
+        })
+        .catch((err) => {
+          if (err.response.status === 500) {
+            dispatch({
+              type: 'LOGIN_REJECTED',
+              payload: { message: 'Sorry, an unexpected error occurred.' },
+            });
+          } else {
+            dispatch({
+              type: 'LOGIN_FAIL',
+              payload: err.response.data,
+            });
+          }
         });
     };
   }

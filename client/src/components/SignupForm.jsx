@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import Authentication from '../actions/AuthActions';
+import Loading from './Loading';
 
 // eslint-disable-next-line react/prefer-stateless-function
 class SignupForm extends Component {
@@ -69,6 +70,7 @@ class SignupForm extends Component {
   render() {
     return (
       <div>
+        <div>{this.props.userRegistration.loading === true ? <Loading /> : ''}</div>
         <h2 className="center-heading">Register</h2>
         <form id="signup-form" onSubmit={this.onSubmit}>
           <label htmlFor="First Name">First Name
@@ -141,6 +143,7 @@ class SignupForm extends Component {
 SignupForm.propTypes = {
   register: PropTypes.func.isRequired,
   userRegistration: PropTypes.shape({
+    loading: PropTypes.bool,
     reqError: PropTypes.bool,
     reqProcessing: PropTypes.bool,
     reqProcessed: PropTypes.bool,

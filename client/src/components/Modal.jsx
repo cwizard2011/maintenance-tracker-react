@@ -9,7 +9,7 @@ class Modal extends Component {
     this.props.onClose && this.props.onClose(e);
   }
   render() {
-    if (!this.props.show) {
+    if (!this.props.show && !this.props.login) {
       return null;
     }
     return (
@@ -27,6 +27,7 @@ class Modal extends Component {
 Modal.propTypes = {
   children: PropTypes.node.isRequired,
   show: PropTypes.bool.isRequired,
+  login: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
 };
 export default Modal;

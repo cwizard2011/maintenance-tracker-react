@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 module.exports = {
   entry: './client/src/app.jsx',
   output: {
@@ -28,7 +30,7 @@ module.exports = {
       template: './client/public/index.html',
     }),
   ],
-  devtool: 'cheap-module-eval-source-map',
+  devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'inline-source-map',
   devServer: {
     contentBase: path.join(__dirname, 'client', 'public'),
     publicPath: '/dist/',
