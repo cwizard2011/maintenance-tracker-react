@@ -1,33 +1,16 @@
 import axios from 'axios';
-import history from './../utils/history';
+import Cookie from 'cookies-js';
 
-/**
- * secure front-end token
- *
- * @class Auth
- */
-export default class AuthToken {
-/**
- * @description: sets token in axios headers
- *
- * @param {String} token token to set
- *
- * @return {Void} Void
- */
-  static setToken(token) {
+const setAuthorizationToken = () => {
+  axios.interceptors.request.use((config) => {
+    const token = Cookie.get('jwtToken');
+
     if (token) {
-      axios.defaults.headers.common.token = token;
+      config.headers.token = token;
     }
-  }
 
-  /**
- * remove token from localStorage
- *
- * @return {Void} Void
- */
-  static deleteToken() {
-    localStorage.removeItem('user');
-    history.push('/');
-    window.location.reload();
-  }
-}
+    return config;
+  }, err => (Promise.reject(err)));
+};
+
+export default setAuthorizationToken;

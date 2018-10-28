@@ -1,22 +1,22 @@
 import React from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
-import history from './../utils/history';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from '../components/Home';
+import PrivateRoute from '../utils/PrivateRoute';
 import UserDashboard from '../components/UserDashboard';
 import AdminDashboard from '../components/AdminDashboard';
-import Loading from '../components/Loading';
+import NotFoundPage from '../components/NotFoundPage';
 
 const AppRouter = () => (
-  <Router history={history}>
+  <BrowserRouter>
     <div>
       <Switch>
         <Route path="/" component={Home} exact />
-        <Route path="/dashboard" component={UserDashboard} />
-        <Route path="/admin" component={AdminDashboard} />
-        <Route path="/loading" component={Loading} />
+        <PrivateRoute path="/dashboard" component={UserDashboard} />
+        <PrivateRoute path="/admin" component={AdminDashboard} />
+        <Route component={NotFoundPage} />
       </Switch>
     </div>
-  </Router>
+  </BrowserRouter>
 );
 
 export default AppRouter;

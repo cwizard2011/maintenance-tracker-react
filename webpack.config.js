@@ -6,7 +6,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 module.exports = {
   entry: './client/src/app.jsx',
   output: {
-    path: path.join(__dirname, 'client', 'public', 'dist'),
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
   },
   module: {
@@ -32,7 +32,7 @@ module.exports = {
   ],
   devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'inline-source-map',
   devServer: {
-    contentBase: path.join(__dirname, 'client', 'public'),
+    contentBase: path.join(__dirname),
     publicPath: '/dist/',
     historyApiFallback: true,
   },

@@ -1,8 +1,23 @@
 import axios from 'axios';
-import history from './../utils/history';
-import AuthToken from '../utils/AuthToken';
+import Cookie from 'cookies-js';
+import toastr from 'toastr';
+import jwt from 'jsonwebtoken';
 import url from '../utils/config';
 import * as actionTypes from './types';
+
+export const setCurrentUser = user => ({
+  type: 'SET_CURRENT_USER',
+  user
+});
+
+export const setCurrentUserError = error => ({
+  type: 'SET_CURRENT_USER_FAIL',
+  error
+});
+export const logoutCurrentUser = () => ({
+  type: 'LOGOUT_USER'
+});
+
 
 /**
  * @class UserActions
@@ -27,7 +42,7 @@ export default class Authentication {
   }) {
     return (dispatch) => {
       dispatch({ type: actionTypes.REGISTRATION_BEGINS });
-      return axios.post(`${url}/auth/signup`, {
+      return axios.post(`${url.apiUrl}/auth/signup`, {
         firstname,
         lastname,
         username,
@@ -35,60 +50,50 @@ export default class Authentication {
         password,
       })
         .then((response) => {
-          dispatch({
-            type: actionTypes.REGISTRATION_SUCCESSFUL,
-            payload: response.data,
-          });
-          AuthToken.setToken(response.data.token);
-          localStorage.setItem('user', JSON.stringify(response.data));
-          history.push('/dashboard');
+          const { message } = response.data;
+          const { token } = response.data.data;
+          Cookie.set('jwtToken', token);
+          toastr.success(message);
+          dispatch(setCurrentUser(jwt.decode(token)));
         })
-        .catch((err) => {
-          if (err.response === 500) {
-            dispatch({
-              type: actionTypes.REGISTRATION_REJECTED,
-              payload: { message: 'Sorry, an unexpected error occurred.' },
-            });
-          } else {
-            dispatch({
-              type: actionTypes.REGISTRATION_FAIL,
-              payload: err.response.data,
-            });
-          }
-          return (err.response.data.message);
+        .catch((error) => {
+          dispatch(setCurrentUserError(error.response.data));
         });
     };
   }
+
+  /**
+   * @param {*} UserObject
+   * @returns {*} Object
+   */
   static login({ username, password, email }) {
     return (dispatch) => {
       dispatch({ type: 'LOGIN_BEGINS' });
-      return axios.post(`${url}/auth/login`, {
+      return axios.post(`${url.apiUrl}/auth/login`, {
         username,
         email,
         password,
       })
         .then((response) => {
-          dispatch({ type: 'LOGIN_SUCCESSFUL', payload: response.data });
-          AuthToken.setToken(response.data.token);
-          localStorage.setItem(
-            'user',
-            JSON.stringify(response.data),
-          );
-          history.push('/dashboard');
+          const { message } = response.data;
+          const { token } = response.data.data;
+          Cookie.set('jwtToken', token);
+          toastr.success(message);
+          dispatch(setCurrentUser(jwt.decode(token)));
         })
-        .catch((err) => {
-          if (err.response.status === 500) {
-            dispatch({
-              type: 'LOGIN_REJECTED',
-              payload: { message: 'Sorry, an unexpected error occurred.' },
-            });
-          } else {
-            dispatch({
-              type: 'LOGIN_FAIL',
-              payload: err.response.data,
-            });
-          }
+        .catch((error) => {
+          dispatch(setCurrentUserError(error.response.data));
         });
+    };
+  }
+
+  /**
+   * @returns {*} empty object
+   */
+  static logout() {
+    return (dispatch) => {
+      Cookie.expire('jwtToken');
+      dispatch(logoutCurrentUser({}));
     };
   }
 }

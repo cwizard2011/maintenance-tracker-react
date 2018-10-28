@@ -5,90 +5,102 @@ import PropTypes from 'prop-types';
 import Authentication from '../actions/AuthActions';
 import Loading from './Loading';
 
-// eslint-disable-next-line react/prefer-stateless-function
+/**
+  * @class LoginForm
+  */
 class LoginForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
+    state = {
       usernameInput: '',
       password: '',
     };
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-  }
+
   /**
-  * description: returns the userRegistration to initial state
-  * @return {void} void
-  */
-  componentWillUnmount() {
-    this.props.userLogin.reqStatus = {};
-    this.props.userLogin.reqError = null;
-    this.props.userLogin.reqProcessed = false;
-    this.props.userLogin.reqProcessing = false;
-    this.setState({
-      usernameInput: '',
-      password: '',
+   * @param {*} event
+   * @returns {*} jsx
+   */
+  onChange = (event) => {
+    const { userLogin } = this.props;
+    userLogin.error = {};
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  /**
+   * @param {*} e
+   * @returns {*} jsx
+   */
+  onSubmit = (e) => {
+    e.preventDefault();
+    const { usernameInput, password } = this.state;
+    const { login } = this.props;
+    const email = usernameInput;
+    const username = usernameInput;
+    return login({
+      username, email, password,
     });
   }
 
-  onChange(event) {
-    this.props.userLogin.reqStatus = {};
-    this.setState({ [event.target.name]: event.target.value });
-  }
-  onSubmit(e) {
-    e.preventDefault();
-    const email = this.state.usernameInput;
-    const username = this.state.usernameInput;
-    const { password } = this.state;
-    return this.props.login({
-      username, email, password,
-    }).then(() => {});
-  }
+  /**
+   * @returns {*} jsx
+   */
   render() {
+    const { userLogin } = this.props;
+    const { usernameInput, password } = this.state;
     return (
       <div>
-        <div>{this.props.userLogin.loading === true ? <Loading /> : ''}</div>
+        <div>{userLogin.loading === true ? <Loading /> : ''}</div>
         <h2 className="center-heading">Login</h2>
         <form onSubmit={this.onSubmit}>
-          <label htmlFor="Username/Email">Username/Email
+          <label htmlFor="Username/Email">
+            Username/Email
             <input
               type="text"
               name="usernameInput"
               placeholder="Username/Email"
-              value={this.state.usernameInput}
+              value={usernameInput}
               required
               onChange={this.onChange}
             />
           </label>
-          <label htmlFor="Password">Password
+          <label htmlFor="Password">
+          Password
             <input
               type="password"
               name="password"
               placeholder="Password"
-              value={this.state.password}
+              value={password}
               required
               onChange={this.onChange}
             />
           </label>
-          <div className="red-text">{this.props.userLogin.reqStatus.code === 401 ? this.props.userLogin.reqStatus.message : ''}</div>
-          <input type="submit" className="right-btn btn" value="Login" />
+          <div className="red-text">
+            {userLogin.error && userLogin.error.code === 401 ? userLogin.error.message : ''}
+          </div>
+          <input
+            disabled={
+              usernameInput === ''
+              || password === ''
+            }
+            type="submit"
+            className="right-btn btn"
+            value="Login"
+          />
         </form>
       </div>
     );
   }
 }
 LoginForm.propTypes = {
-  login: PropTypes.func.isRequired,
+  login: PropTypes.func,
   userLogin: PropTypes.shape({
-    reqError: PropTypes.bool,
+    error: PropTypes.shape({
+      code: PropTypes.number,
+      message: PropTypes.string
+    }),
     loading: PropTypes.bool,
-    reqProcessing: PropTypes.bool,
-    reqProcessed: PropTypes.bool,
-    reqStatus: PropTypes.object,
-  }).isRequired,
+  }),
 };
 const mapStateToProps = state => ({
-  userLogin: state.userLogin,
+  userLogin: state.authReducer,
 });
 
 const matchDispatchToProps = dispatch => bindActionCreators({
