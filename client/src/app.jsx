@@ -1,11 +1,15 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import configureStore from './store/configureStore';
+import store from './store/configureStore';
 import AppRouter from './routes/AppRouter';
+import setAuthorizationToken from './utils/AuthToken';
+import setUserToStore from './utils/setUserToStore';
 import './style/index.scss';
 
-const store = configureStore();
+setAuthorizationToken();
+
+setUserToStore(store);
 
 const jsx = (
   <Provider store={store}>

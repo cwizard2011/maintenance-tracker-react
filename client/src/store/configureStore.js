@@ -1,19 +1,21 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import AuthReducers from '../reducers/AuthReducers';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import appReducer from '../reducers/index';
 
-/* eslint no-underscore-dangle: ["error", { "allow": ["__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"] }] */
+const middleware = process.env.NODE_ENV
+ === 'development' ? composeWithDevTools(applyMiddleware(thunk)) : applyMiddleware(thunk);
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-// Store creation
-export default () => {
-  const store = createStore(
-    combineReducers({
-      userRegistration: AuthReducers.signup,
-      userLogin: AuthReducers.signin,
-    }),
-    composeEnhancers(applyMiddleware(thunk)),
-  );
+/**
+ *
+ * @description - Redux store configuration
+ *
+ *
+ * @returns {Object} - Object containing data in redux store
+ */
+const store = createStore(
+  appReducer,
+  middleware
+);
 
-  return store;
-};
+export default store;
