@@ -4,6 +4,7 @@ const initialState = {
   requests: [],
   request: {},
   loading: false,
+  postLoading: false
 };
 
 const requestReducer = (state = initialState, action) => {
@@ -17,6 +18,20 @@ const requestReducer = (state = initialState, action) => {
         requests: action.requests
       };
     case 'FETCH_REQUESTS_FAILS':
+      return {
+        ...state,
+        loading: false,
+        error: action.error
+      };
+    case 'POST_REQUESTS_BEGINS':
+      return { ...state, postLoading: true };
+    case 'POST_REQUESTS':
+      return {
+        ...state,
+        request: action.request,
+        loading: false
+      };
+    case 'POST_REQUESTS_FAILS':
       return {
         ...state,
         loading: false,

@@ -6,6 +6,7 @@ import AppRouter from './routes/AppRouter';
 import setAuthorizationToken from './utils/AuthToken';
 import setUserToStore from './utils/setUserToStore';
 import './style/index.scss';
+import 'toastr/build/toastr.css';
 
 setAuthorizationToken();
 

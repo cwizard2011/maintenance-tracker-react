@@ -9,7 +9,7 @@
     "build": "webpack --config webpack.config.prod.js",
     "start": "node index.js",
     "lint": "eslint ./src/index.js",
-    "dev-server": "webpack-dev-server --open --hot",
+    "dev-server": "webpack-dev-server --config webpack.config.dev.js --watch --open --hot",
     "test": "jest"
   },
   "author": "Adeoye Peter Adeola",

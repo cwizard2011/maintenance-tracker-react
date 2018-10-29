@@ -32,7 +32,7 @@ module.exports = {
   ],
   devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'inline-source-map',
   devServer: {
-    port: 6000,
+    port: 5000,
     historyApiFallback: true,
   }
 };
