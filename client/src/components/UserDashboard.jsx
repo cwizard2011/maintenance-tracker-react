@@ -7,12 +7,16 @@ import UserNavigation from './UserNavigation';
 import RequestContainer from './common/RequestContainer';
 import Loading from './Loading';
 import Authentication from '../actions/AuthActions';
+import Modal from './Modal';
+import RequestForm from './RequestForm';
 
 /**
  * @class UserDashboard
  */
 export class UserDashboard extends Component {
-  state = {}
+  state = {
+    requestModal: false,
+  }
 
   componentDidMount = () => {
     const { fetchRequests } = this.props;
@@ -42,6 +46,13 @@ export class UserDashboard extends Component {
     }
   }
 
+  showRequestModal = () => {
+    this.setState({
+      ...this.state, // eslint-disable-line
+      requestModal: !this.state.requestModal, // eslint-disable-line
+    });
+  }
+
   /**
    * @param {*} event
    * @returns {*} jsx
@@ -53,10 +64,24 @@ export class UserDashboard extends Component {
   }
 
   /**
+   * @param {*} request
+   * @returns {*} object
+   */
+  submitRequest = (request) => {
+    const { postRequest, history } = this.props;
+    postRequest(request).then((res) => {
+      if (res.data.code === 201) {
+        return history.push('/');
+      }
+    });
+  }
+
+  /**
    * @returns {*} jsx
    */
   render() {
     const { user, requests } = this.props;
+    const { requestModal } = this.state;
     if (requests.loading) {
       return (
         <div>
@@ -77,6 +102,21 @@ export class UserDashboard extends Component {
             burgerToggle={this.burgerToggle}
           />
           <div className="container">
+            <a href="#">
+              <button
+                type="button"
+                className="right-btn btn"
+                onClick={this.showRequestModal}
+              >
+            New Request
+              </button>
+            </a>
+            <Modal
+              onClose={this.showRequestModal}
+              show={requestModal}
+            >
+              <RequestForm handleSubmit={this.submitRequest} />
+            </Modal>
             <div className="center-heading">
             You have not create any request, click on new request to send a new request
             </div>
@@ -93,6 +133,21 @@ export class UserDashboard extends Component {
           burgerToggle={this.burgerToggle}
         />
         <div className="container">
+          <a href="#">
+            <button
+              type="button"
+              className="right-btn btn"
+              onClick={this.showRequestModal}
+            >
+            New Request
+            </button>
+          </a>
+          <Modal
+            onClose={this.showRequestModal}
+            show={requestModal}
+          >
+            <RequestForm handleSubmit={this.submitRequest} />
+          </Modal>
           <div className="content-container">
             {requests.requests.map((request) => {
               if (request.currentstatus === 'pending') {
@@ -152,7 +207,10 @@ UserDashboard.propTypes = {
   fetchRequests: PropTypes.func,
   user: PropTypes.instanceOf(Object),
   logout: PropTypes.func,
-  requests: PropTypes.instanceOf(Object)
+  requests: PropTypes.instanceOf(Object),
+  postRequest: PropTypes.func,
+  history: PropTypes.func
+
 };
 const mapStateToProps = state => ({
   requests: state.requestReducer,
@@ -162,6 +220,7 @@ const mapStateToProps = state => ({
 
 const matchDispatchToProps = dispatch => bindActionCreators({
   fetchRequests: RequestAction.fetchRequest,
+  postRequest: RequestAction.postRequest,
   logout: Authentication.logout
 }, dispatch);
 export default connect(mapStateToProps, matchDispatchToProps)(UserDashboard);

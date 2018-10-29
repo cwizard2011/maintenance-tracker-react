@@ -9,14 +9,14 @@ import GuestNavigation from './GuestNavigation';
  */
 class HomeBody extends Component {
     state = {
-      show: false,
+      signup: false,
       login: false,
     };
 
   showSignup = () => {
     this.setState({
       ...this.state, // eslint-disable-line
-      show: !this.state.show, // eslint-disable-line
+      signup: !this.state.signup, // eslint-disable-line
     });
   }
 
@@ -40,7 +40,7 @@ class HomeBody extends Component {
    * @returns {*} jsx
    */
   render() {
-    const { show, login } = this.state;
+    const { signup, login } = this.state;
     return (
       <div>
         <GuestNavigation
@@ -126,14 +126,14 @@ class HomeBody extends Component {
           </div>
           <Modal
             onClose={this.showSignup}
-            show={show}
+            show={signup}
           >
             <SignupForm />
           </Modal>
           <div>
             <Modal
               onClose={this.showLoginModal}
-              login={login}
+              show={login}
             >
               <LoginForm />
             </Modal>

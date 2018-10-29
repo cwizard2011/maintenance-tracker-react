@@ -19,8 +19,8 @@ class Modal extends Component {
  * @returns {*} jsx
  */
   render() {
-    const { show, login, children } = this.props;
-    if (!show && !login) {
+    const { show, children } = this.props;
+    if (!show) {
       return null;
     }
     return (
@@ -44,7 +44,6 @@ class Modal extends Component {
 Modal.propTypes = {
   children: PropTypes.node,
   show: PropTypes.bool,
-  login: PropTypes.bool,
   onClose: PropTypes.func,
 };
 export default Modal;
