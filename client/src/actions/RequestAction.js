@@ -60,4 +60,30 @@ export default class RequestAction {
         });
     };
   }
+
+  /**
+  * Request to the API to fetch user request
+  *
+  * @static
+  * @param {*} requestId
+  * @returns {Object} dispatch object
+  */
+  static fetchSingleRequest(requestId) {
+    return (dispatch) => {
+      dispatch({ type: 'FETCH_REQUEST_BEGINS' });
+      return axios.get(`${url.apiUrl}/users/requests/${requestId}`)
+        .then((response) => {
+          dispatch({
+            type: 'FETCH_REQUEST',
+            request: response.data.data,
+          });
+        })
+        .catch((error) => {
+          dispatch({
+            type: 'FETCH_REQUEST-FAILS',
+            error: error.response.data,
+          });
+        });
+    };
+  }
 }

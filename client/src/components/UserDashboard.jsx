@@ -9,7 +9,7 @@ import Loading from './Loading';
 import Authentication from '../actions/AuthActions';
 import Modal from './Modal';
 import RequestForm from './RequestForm';
-
+import Footer from './common/Footer';
 /**
  * @class UserDashboard
  */
@@ -37,30 +37,11 @@ export class UserDashboard extends Component {
     return null;
   }
 
-  burgerToggle = () => {
-    this.linksEl = document.querySelector('.narrowLinks');
-    if (this.linksEl.style.display === 'block') {
-      this.linksEl.style.display = 'none';
-    } else {
-      this.linksEl.style.display = 'block';
-    }
-  }
-
   showRequestModal = () => {
     this.setState({
       ...this.state, // eslint-disable-line
       requestModal: !this.state.requestModal, // eslint-disable-line
     });
-  }
-
-  /**
-   * @param {*} event
-   * @returns {*} jsx
-   */
-  handleLogout = (event) => {
-    const { logout } = this.props;
-    event.preventDefault();
-    logout();
   }
 
   /**
@@ -80,27 +61,19 @@ export class UserDashboard extends Component {
    * @returns {*} jsx
    */
   render() {
-    const { user, requests } = this.props;
+    const { requests } = this.props;
     const { requestModal } = this.state;
     if (requests.loading) {
       return (
         <div>
-          <UserNavigation
-            user={user.username}
-            handleLogout={this.handleLogout}
-            burgerToggle={this.burgerToggle}
-          />
+          <UserNavigation />
           <Loading />
         </div>
       );
     } else if (!requests.loading && requests.requests.length === undefined) {
       return (
         <div>
-          <UserNavigation
-            user={user.username}
-            handleLogout={this.handleLogout}
-            burgerToggle={this.burgerToggle}
-          />
+          <UserNavigation />
           <div className="container">
             <a href="#">
               <button
@@ -121,17 +94,14 @@ export class UserDashboard extends Component {
             You have not create any request, click on new request to send a new request
             </div>
           </div>
+          <Footer />
         </div>
       );
     }
 
     return (
       <div>
-        <UserNavigation
-          user={user.username}
-          handleLogout={this.handleLogout}
-          burgerToggle={this.burgerToggle}
-        />
+        <UserNavigation />
         <div className="container">
           <a href="#">
             <button
@@ -154,6 +124,7 @@ export class UserDashboard extends Component {
                 return (
                   <div key={request.request_id}>
                     <RequestContainer
+                      requestId={request.request_id}
                       title={request.title}
                       label="label pending"
                       icon="pause"
@@ -165,6 +136,7 @@ export class UserDashboard extends Component {
                 return (
                   <div key={request.request_id}>
                     <RequestContainer
+                      requestId={request.request_id}
                       title={request.title}
                       label="label success"
                       icon="done-all"
@@ -176,6 +148,7 @@ export class UserDashboard extends Component {
                 return (
                   <div key={request.request_id}>
                     <RequestContainer
+                      requestId={request.request_id}
                       title={request.title}
                       label="label danger"
                       icon="close"
@@ -187,6 +160,7 @@ export class UserDashboard extends Component {
                 return (
                   <div key={request.request_id}>
                     <RequestContainer
+                      requestId={request.request_id}
                       title={request.title}
                       label="label success"
                       icon="build"
@@ -199,14 +173,13 @@ export class UserDashboard extends Component {
             })}
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
 }
 UserDashboard.propTypes = {
   fetchRequests: PropTypes.func,
-  user: PropTypes.instanceOf(Object),
-  logout: PropTypes.func,
   requests: PropTypes.instanceOf(Object),
   postRequest: PropTypes.func,
   history: PropTypes.func
@@ -214,7 +187,6 @@ UserDashboard.propTypes = {
 };
 const mapStateToProps = state => ({
   requests: state.requestReducer,
-  user: state.authReducer.user,
   auth: state.authReducer.isAuthenticated
 });
 
