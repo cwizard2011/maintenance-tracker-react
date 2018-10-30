@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Not found page render not found page correctly 1`] = `
+<div>
+  <nav
+    className="nav"
+  >
+    <div
+      className="navWide"
+    >
+      <div
+        className="wideDiv"
+      >
+        <Link
+          replace={false}
+          title="Home page"
+          to="/"
+        >
+          <i
+            className="fa icon-font"
+          >
+            
+          </i>
+        </Link>
+      </div>
+    </div>
+  </nav>
+  <div
+    className="center-heading"
+  >
+    <h1>
+      Sorry, this request page has not been created
+    </h1>
+    <p>
+      Please click the button to start creating requests
+    </p>
+     
+    <Link
+      replace={false}
+      to="/"
+    >
+      <button
+        className="btn"
+        type="button"
+      >
+        Go home
+      </button>
+    </Link>
+  </div>
+  <Footer />
+</div>
+`;

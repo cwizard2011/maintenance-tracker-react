@@ -1,0 +1,117 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Signup Form render signup form component correctly 1`] = `
+<div>
+  <div />
+  <h2
+    className="center-heading"
+  >
+    Register
+  </h2>
+  <form
+    id="signup-form"
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="First Name"
+    >
+      First Name
+      <input
+        name="firstname"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </label>
+    <div
+      className="red-text"
+    />
+    <label
+      htmlFor="Last Name"
+    >
+      Last Name
+      <input
+        name="lastname"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </label>
+    <div
+      className="red-text"
+    />
+    <label
+      htmlFor="Email"
+    >
+      Email
+      <input
+        name="email"
+        onChange={[Function]}
+        required={true}
+        type="email"
+        value=""
+      />
+    </label>
+    <div
+      className="red-text"
+    />
+    <label
+      htmlFor="Username"
+    >
+      Username
+      <input
+        name="username"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+    </label>
+    <div
+      className="red-text"
+    />
+    <div
+      className="red-text"
+    />
+    <label
+      htmlFor="Password"
+    >
+      Password
+      <input
+        name="password"
+        onChange={[Function]}
+        required={true}
+        type="password"
+        value=""
+      />
+    </label>
+    <div
+      className="red-text"
+    />
+    <label
+      htmlFor="Confirm Password"
+    >
+      Confirm Password
+      <input
+        name="passwordConfirm"
+        onChange={[Function]}
+        required={true}
+        type="password"
+        value=""
+      />
+    </label>
+    <div
+      className="red-text"
+      id="message"
+    />
+    <input
+      className="right-btn btn"
+      disabled={true}
+      type="submit"
+      value="Submit"
+    />
+  </form>
+</div>
+`;

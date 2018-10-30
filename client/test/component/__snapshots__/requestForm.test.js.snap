@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Request Form render request form correctly 1`] = `
+<div>
+  <div />
+  <div
+    className="form-field request-form "
+  >
+    <h3
+      className="center-heading"
+    >
+      New complaint
+    </h3>
+    <form
+      onSubmit={[Function]}
+    >
+      <label
+        htmlFor="Request Title"
+      >
+        Request Title
+      </label>
+      <input
+        name="title"
+        onChange={[Function]}
+        required={true}
+        type="text"
+        value=""
+      />
+      <p
+        className="red-text"
+      />
+      <p
+        className="red-text"
+      />
+      <label
+        htmlFor="Request details"
+      >
+        Request Details
+      </label>
+      <textarea
+        name="details"
+        onChange={[Function]}
+        required={true}
+        value=""
+      />
+      <input
+        className="right-btn btn"
+        disabled={true}
+        type="submit"
+        value="Send Request"
+      />
+      <p
+        className="red-text"
+      />
+    </form>
+  </div>
+</div>
+`;

@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Guest Navigation render guest navigation correctly 1`] = `
+<nav
+  className="nav"
+>
+  <div
+    className="navWide"
+  >
+    <div
+      className="wideDiv"
+    >
+      <Link
+        replace={false}
+        title="Home page"
+        to="/"
+      >
+        <i
+          className="fa icon-font"
+        >
+          
+        </i>
+      </Link>
+      <a
+        role="presentation"
+        title="Login Users"
+        value="Show Login"
+      >
+        Login
+      </a>
+    </div>
+  </div>
+  <div
+    className="navNarrow"
+  >
+    <Link
+      replace={false}
+      title="Home page"
+      to="/"
+    >
+      <i
+        className="fa icon-font"
+      >
+        
+      </i>
+    </Link>
+    <i
+      className="fa fa-bars fa-2x icon-padding"
+      role="presentation"
+    />
+    <div
+      className="narrowLinks"
+    >
+      <a
+        href="#"
+        title="Login Users"
+        value="Show Login"
+      >
+        Login
+      </a>
+    </div>
+  </div>
+</nav>
+`;

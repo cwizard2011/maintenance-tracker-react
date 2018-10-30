@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Edit Request render edit request component correctly 1`] = `
+<div>
+  <Connect(UserNavigation) />
+  <div
+    className="container"
+  >
+    <div
+      className="form-field-margin"
+    >
+      <Connect(RequestForm)
+        handleSubmit={[Function]}
+        match={
+          Object {
+            "params": Object {
+              "requestId": "aa9-vv-33e",
+            },
+          }
+        }
+        request={
+          Object {
+            "created_at": "2018-10-30T13:32:54.578Z",
+            "currentstatus": "pending",
+            "details": "testing now",
+            "request_id": "b50b13ef-f8f8-4b99-a33c-0d3a159f320b",
+            "title": "Test request",
+            "updated_at": "2018-10-30T13:32:54.578Z",
+            "user_id": "48a698a0-1641-5aca-bc1b-de9b1a482ee1",
+          }
+        }
+      />
+    </div>
+    <div />
+  </div>
+  <Footer />
+</div>
+`;

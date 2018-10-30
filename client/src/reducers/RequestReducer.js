@@ -3,6 +3,7 @@ const initialState = {
   user: {},
   requests: [],
   request: {},
+  update: {},
   loading: false,
   postLoading: false
 };
@@ -47,6 +48,24 @@ const requestReducer = (state = initialState, action) => {
         postLoading: false,
       };
     case 'POST_REQUESTS_FAILS':
+      return {
+        ...state,
+        loading: false,
+        postLoading: false,
+        error: action.error
+      };
+    case 'EDIT_REQUEST_BEGINS':
+      return {
+        ...state,
+        postLoading: true,
+      };
+    case 'EDIT_REQUEST':
+      return {
+        ...state,
+        update: action.update,
+        postLoading: false
+      };
+    case 'EDIT_REQUEST_FAILS':
       return {
         ...state,
         loading: false,

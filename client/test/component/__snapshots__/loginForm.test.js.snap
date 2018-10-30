@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login Form render login form correctly 1`] = `
+<div>
+  <div />
+  <h2
+    className="center-heading"
+  >
+    Login
+  </h2>
+  <form
+    onSubmit={[Function]}
+  >
+    <label
+      htmlFor="Username/Email"
+    >
+      Username/Email
+      <input
+        name="usernameInput"
+        onChange={[Function]}
+        placeholder="Username/Email"
+        required={true}
+        type="text"
+        value=""
+      />
+    </label>
+    <label
+      htmlFor="Password"
+    >
+      Password
+      <input
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        required={true}
+        type="password"
+        value=""
+      />
+    </label>
+    <div
+      className="red-text"
+    />
+    <input
+      className="right-btn btn"
+      disabled={true}
+      type="submit"
+      value="Login"
+    />
+  </form>
+</div>
+`;

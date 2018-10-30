@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User Navigation render user navigation correctly 1`] = `
+<nav
+  className="nav"
+>
+  <div
+    className="navWide"
+  >
+    <div
+      className="wideDiv"
+    >
+      <Link
+        replace={false}
+        title="Home page"
+        to="/"
+      >
+        <i
+          className="fa icon-font"
+        >
+          
+        </i>
+      </Link>
+      <a
+        onClick={[Function]}
+        role="presentation"
+        title="Login Users"
+        value="Show Login"
+      >
+        Logout
+      </a>
+      <a
+        role="presentation"
+        title="Welcome Users"
+        value="Display User"
+      >
+        Welcome juliet
+      </a>
+    </div>
+  </div>
+  <div
+    className="navNarrow"
+  >
+    <Link
+      replace={false}
+      title="Home page"
+      to="/"
+    >
+      <i
+        className="fa icon-font"
+      >
+        
+      </i>
+    </Link>
+    <i
+      className="fa fa-bars fa-2x icon-padding"
+      onClick={[Function]}
+      role="presentation"
+    />
+    <div
+      className="narrowLinks"
+    >
+      <a
+        onClick={[Function]}
+        role="presentation"
+        title="Login Users"
+        value="Show Login"
+      >
+        Logout
+      </a>
+      <a
+        role="presentation"
+        title="Welcome Users"
+        value="Display User"
+      >
+        Welcome juliet
+      </a>
+    </div>
+  </div>
+</nav>
+`;

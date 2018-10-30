@@ -1,16 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import Loading from './Loading';
+import RequestAction from '../actions/RequestAction';
 
 /**
  * @class RequestForm
  */
-class RequestForm extends Component {
+export class RequestForm extends Component {
   state = {
     title: '',
     details: '',
     error: {},
+  }
+
+  componentDidMount = () => {
+    const { fetchSingleRequest, match } = this.props;
+    if (match && match.params.requestId) {
+      fetchSingleRequest(match.params.requestId).then((res) => {
+        this.setState({
+          title: res.data.data.title,
+          details: res.data.data.details
+        });
+      });
+    }
   }
 
   /**
@@ -20,8 +34,8 @@ class RequestForm extends Component {
    * @returns {*} object
    */
   static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.requests !== prevState.requests && nextProps.requests.error.message) {
-      return { error: nextProps.requests.error.message.errors };
+    if (nextProps.request !== prevState.request && nextProps.request.error.message) {
+      return { error: nextProps.request.error.message.errors };
     }
     return null;
   }
@@ -32,8 +46,8 @@ class RequestForm extends Component {
    */
   onChange = (event) => {
     event.preventDefault();
-    const { requests } = this.props;
-    requests.error = {};
+    const { request } = this.props;
+    request.error = {};
     this.setState({ error: {} });
     this.setState({ [event.target.name]: event.target.value });
   }
@@ -54,42 +68,45 @@ class RequestForm extends Component {
    */
   render() {
     const { title, details, error } = this.state;
-    const { requests } = this.props;
+    const { request } = this.props;
     return (
       <div>
-        <div>{requests.postLoading === true ? <Loading /> : ''}</div>
-        <h3 className="center-heading">New complaint</h3>
-        <form onSubmit={this.onSubmit}>
-          <label htmlFor="Request Title">Request Title</label>
-          <input
-            type="text"
-            name="title"
-            value={title}
-            onChange={this.onChange}
-            required
-          />
-          <p className="red-text">{error && error.title ? error.title[0] : ''}</p>
-          <p className="red-text">
-            {requests.error && requests.error.code === 409 ? requests.error.message : '' }
-          </p>
-          <label htmlFor="Request details">Request Details</label>
-          <textarea
-            name="details"
-            value={details}
-            onChange={this.onChange}
-            required
-          />
-          <p className="red-text">{error && error.details ? error.details[0] : ''}</p>
-          <input
-            type="submit"
-            className="right-btn btn"
-            value="Send Request"
-            disabled={
+        <div>{request.postLoading === true ? <Loading /> : ''}</div>
+        <div className="form-field request-form ">
+          <h3 className="center-heading">New complaint</h3>
+          <form onSubmit={this.onSubmit}>
+            <label htmlFor="Request Title">Request Title</label>
+            <input
+              type="text"
+              name="title"
+              value={title}
+              onChange={this.onChange}
+              required
+            />
+            <p className="red-text">{error && error.title ? error.title[0] : ''}</p>
+            <p className="red-text">
+              {request.error && request.error.code === 409 ? request.error.message : '' }
+            </p>
+            <label htmlFor="Request details">Request Details</label>
+            <textarea
+              name="details"
+              value={details}
+              onChange={this.onChange}
+              required
+            />
+            <input
+              type="submit"
+              className="right-btn btn"
+              value="Send Request"
+              disabled={
               title === ''
               || details === ''
             }
-          />
-        </form>
+            />
+            <p className="red-text">{error && error.details ? error.details[0] : ''}</p>
+          </form>
+        </div>
+
       </div>
     );
   }
@@ -97,9 +114,15 @@ class RequestForm extends Component {
 
 RequestForm.propTypes = {
   handleSubmit: PropTypes.func,
-  requests: PropTypes.instanceOf(Object)
+  fetchSingleRequest: PropTypes.func,
+  match: PropTypes.instanceOf(Object),
+  request: PropTypes.instanceOf(Object)
 };
+
 const mapStateToProps = state => ({
-  requests: state.requestReducer
+  request: state.requestReducer
 });
-export default connect(mapStateToProps, null)(RequestForm);
+const matchDispatchToProps = dispatch => bindActionCreators({
+  fetchSingleRequest: RequestAction.fetchSingleRequest,
+}, dispatch);
+export default connect(mapStateToProps, matchDispatchToProps)(RequestForm);

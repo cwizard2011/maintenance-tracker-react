@@ -8,7 +8,7 @@ import Authentication from '../actions/AuthActions';
 /**
  * @class UserNavigation
  */
-class UserNavigation extends Component {
+export class UserNavigation extends Component {
   /**
    * @param {*} event
    * @returns {*} jsx

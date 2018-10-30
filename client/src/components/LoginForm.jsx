@@ -8,7 +8,7 @@ import Loading from './Loading';
 /**
   * @class LoginForm
   */
-class LoginForm extends Component {
+export class LoginForm extends Component {
     state = {
       usernameInput: '',
       password: '',

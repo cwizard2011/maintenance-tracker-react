@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
 import Home from './Home';
 
-// eslint-disable-next-line react/prefer-stateless-function
+/**
+ * @class App
+ */
 class App extends Component {
+  /**
+   * @returns {*} jsx
+   */
   render() {
     return (
       <div>

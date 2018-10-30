@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Create Request render create request component correctly 1`] = `
+<div>
+  <Connect(UserNavigation) />
+  <div
+    className="container"
+  >
+    <div
+      className="form-field-margin"
+    >
+      <Connect(RequestForm)
+        handleSubmit={[Function]}
+      />
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
