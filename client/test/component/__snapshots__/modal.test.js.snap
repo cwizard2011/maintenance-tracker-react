@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal not render Modal 1`] = `""`;
+
+exports[`Modal should render modal correctly 1`] = `
+<div>
+  <div
+    className="modals"
+  >
+    <div
+      className="modals-content form-field modals-body"
+    >
+      <span
+        className="close"
+        onClick={[Function]}
+        role="presentation"
+      >
+        ×
+      </span>
+      new
+    </div>
+  </div>
+</div>
+`;

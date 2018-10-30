@@ -5,7 +5,7 @@ import HomeBody from './HomeBody';
 /**
  * @class Home
  */
-class Home extends Component {
+export class Home extends Component {
   state = {}
 
   /**

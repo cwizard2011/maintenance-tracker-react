@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Body render homeBody form correctly 1`] = `
+<div>
+  <GuestNavigation
+    burgerToggle={[Function]}
+    showLoginModal={[Function]}
+  />
+  <div
+    className="container"
+  >
+    <div
+      className="center-heading"
+    >
+      <h1>
+        Maintenance Desk
+      </h1>
+      <h3>
+        You can get your technical issues resolved in four major steps.
+      </h3>
+    </div>
+    <div
+      className="align-horizontal"
+    >
+      <div
+        className="circular-image"
+      >
+        <button
+          className="button-link"
+          onClick={[Function]}
+          type="button"
+          value="Show Signup"
+        >
+          <figure>
+            <img
+              alt="Login"
+              className="icon-image"
+              src="https://res.cloudinary.com/cwizard/image/upload/v1540768548/login.svg"
+            />
+            <figcaption>
+              Register
+            </figcaption>
+          </figure>
+        </button>
+      </div>
+      <div
+        className="circular-image"
+      >
+        <button
+          className="button-link"
+          onClick={[Function]}
+          type="button"
+          value="Show Signup"
+        >
+          <figure>
+            <img
+              alt="Log"
+              className="icon-image"
+              src="https://res.cloudinary.com/cwizard/image/upload/v1540768548/log.svg"
+            />
+            <figcaption>
+              Log a request
+            </figcaption>
+          </figure>
+        </button>
+      </div>
+      <div
+        className="circular-image"
+      >
+        <button
+          className="button-link"
+          onClick={[Function]}
+          type="button"
+          value="Show Signup"
+        >
+          <figure>
+            <img
+              alt="Approved"
+              className="icon-image"
+              src="https://res.cloudinary.com/cwizard/image/upload/v1540768548/approved.svg"
+            />
+            <figcaption>
+              Get request approved
+            </figcaption>
+          </figure>
+        </button>
+      </div>
+      <div
+        className="circular-image"
+      >
+        <button
+          className="button-link"
+          onClick={[Function]}
+          type="button"
+          value="Show Signup"
+        >
+          <figure>
+            <img
+              alt="Resolved"
+              className="icon-image"
+              src="https://res.cloudinary.com/cwizard/image/upload/v1540768548/resolved.svg"
+            />
+            <figcaption>
+              Get request resolved
+            </figcaption>
+          </figure>
+        </button>
+      </div>
+    </div>
+    <Modal
+      onClose={[Function]}
+      show={false}
+    >
+      <Connect(SignupForm) />
+    </Modal>
+    <div>
+      <Modal
+        onClose={[Function]}
+        show={false}
+      >
+        <Connect(LoginForm) />
+      </Modal>
+    </div>
+  </div>
+</div>
+`;

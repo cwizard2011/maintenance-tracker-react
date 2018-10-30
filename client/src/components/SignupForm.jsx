@@ -8,7 +8,7 @@ import Loading from './Loading';
 /**
  * @class SignupForm
  */
-class SignupForm extends Component {
+export class SignupForm extends Component {
    state = {
      firstname: '',
      lastname: '',

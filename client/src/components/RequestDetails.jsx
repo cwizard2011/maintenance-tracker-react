@@ -13,7 +13,7 @@ import Loading from './Loading';
 /**
  * @class RequestDetails
  */
-class RequestDetails extends Component {
+export class RequestDetails extends Component {
   componentDidMount = () => {
     const { fetchSingleRequest, match } = this.props;
     fetchSingleRequest(match.params.requestId);

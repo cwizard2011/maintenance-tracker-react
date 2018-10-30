@@ -25,7 +25,7 @@ export default class RequestAction {
         })
         .catch((error) => {
           dispatch({
-            type: 'FETCH_REQUESTS-FAILS',
+            type: 'FETCH_REQUESTS_FAILS',
             error: error.response.data,
           });
         });
@@ -37,9 +37,10 @@ export default class RequestAction {
   *
   * @static
   * @param {*} request
+  * @param {*} history
   * @returns {Object} dispatch object
   */
-  static postRequest(request) {
+  static postRequest(request, history) {
     return (dispatch) => {
       dispatch({ type: 'POST_REQUESTS_BEGINS' });
       return axios.post(`${url.apiUrl}/users/requests`, request)
@@ -50,7 +51,7 @@ export default class RequestAction {
             type: 'POST_REQUESTS',
             request: response.data.data.request
           });
-          return response;
+          history.push('/dashboard');
         })
         .catch((error) => {
           dispatch({
@@ -77,10 +78,41 @@ export default class RequestAction {
             type: 'FETCH_REQUEST',
             request: response.data.data,
           });
+          return response;
         })
         .catch((error) => {
           dispatch({
-            type: 'FETCH_REQUEST-FAILS',
+            type: 'FETCH_REQUEST_FAILS',
+            error: error.response.data,
+          });
+        });
+    };
+  }
+
+  /**
+  * Request to the API to fetch user request
+  *
+  * @static
+  * @param {*} update
+  * @param {*} requestId
+  * @returns {Object} dispatch object
+  */
+  static editRequest(update, requestId) {
+    return (dispatch) => {
+      dispatch({ type: 'EDIT_REQUEST_BEGINS' });
+      return axios.put(`${url.apiUrl}/users/requests/${requestId}`, update)
+        .then((response) => {
+          const { message } = response.data.data;
+          toastr.success(message);
+          dispatch({
+            type: 'EDIT_REQUEST',
+            update: response.data.data.request
+          });
+          return response;
+        })
+        .catch((error) => {
+          dispatch({
+            type: 'EDIT_REQUEST_FAILS',
             error: error.response.data,
           });
         });

@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Request detail render request detail correctly 1`] = `
+<div
+  className="request-details"
+>
+  <h3>
+    Request Details
+  </h3>
+  <p>
+    Title:
+     
+    <span />
+  </p>
+  <p>
+    Request Id:
+     
+    <span />
+  </p>
+  <p>
+    Status:
+     
+    <span>
+      <ion-icon />
+    </span>
+  </p>
+  <p>
+    Details:
+     
+    <span />
+  </p>
+  <p>
+    Created on:
+     
+    <span>
+       
+       
+    </span>
+  </p>
+  <p>
+    Updated on:
+     
+    <span>
+       
+       
+    </span>
+  </p>
+</div>
+`;

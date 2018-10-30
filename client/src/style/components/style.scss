@@ -587,6 +587,14 @@ figcaption {
 		cursor: pointer;
 	}
 }
+.form-field-margin {
+	margin: 8% auto;
+}
+.request-form {
+	width: 50vw !important;
+	min-height: 250px !important;
+	max-height: 400px !important;
+}
 .form-field {
 	font-family: $font_family_5;
 	width: 400px;
@@ -1329,6 +1337,9 @@ tr {
 		margin: 3%;
 		width: 200px;
 	}
+	.request-form {
+		width: 60vw !important;
+	}
 	.content-border {
 		display: flex;
 		flex-direction: column;
@@ -1383,6 +1394,9 @@ tr {
 	}
 	.ssm-font {
 		margin: 3px;
+	}
+	.request-form {
+		width: 60vw !important;
 	}
 	footer {
 		padding: 8px 4px;

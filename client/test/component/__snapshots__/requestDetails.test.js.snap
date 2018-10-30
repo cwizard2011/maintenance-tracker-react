@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Edit Request render pending requests correctly 1`] = `
+<div>
+  <Connect(UserNavigation) />
+  <div
+    className="container"
+  >
+    <div
+      className="request"
+    >
+      <RequestDetailsContent
+        created="Oct 30, 2018"
+        details="testing now"
+        labelClass="label pending"
+        labelName="pause"
+        requestId="b50b13ef-f8f8-4b99-a33c-0d3a159f320b"
+        status="pending"
+        title="Test request"
+        updated="Oct 30, 2018"
+      />
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`Edit Request should render resolved request correctly 1`] = `
+<div>
+  <Connect(UserNavigation) />
+  <div
+    className="container"
+  >
+    <div
+      className="request"
+    >
+      <RequestDetailsContent
+        created="Oct 30, 2018"
+        details="testing now"
+        labelClass="label success"
+        labelName="build"
+        requestId="b50b13ef-f8f8-4b99-a33c-0d3a159f320b"
+        status="resolved"
+        title="Test request"
+        updated="Oct 30, 2018"
+      />
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`Edit Request should render resolved request correctly 2`] = `
+<div>
+  <Connect(UserNavigation) />
+  <div
+    className="container"
+  >
+    <div
+      className="request"
+    >
+      <RequestDetailsContent
+        created="Oct 30, 2018"
+        details="testing now"
+        labelClass="label success"
+        labelName="done-all"
+        requestId="b50b13ef-f8f8-4b99-a33c-0d3a159f320b"
+        status="approved"
+        title="Test request"
+        updated="Oct 30, 2018"
+      />
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`Edit Request should render resolved request correctly 3`] = `
+<div>
+  <Connect(UserNavigation) />
+  <div
+    className="container"
+  >
+    <div
+      className="request"
+    >
+      <RequestDetailsContent
+        created="Oct 30, 2018"
+        details="testing now"
+        labelClass="label danger"
+        labelName="close"
+        requestId="b50b13ef-f8f8-4b99-a33c-0d3a159f320b"
+        status="rejected"
+        title="Test request"
+        updated="Oct 30, 2018"
+      />
+    </div>
+  </div>
+  <Footer />
+</div>
+`;

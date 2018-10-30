@@ -2,21 +2,18 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import RequestAction from '../actions/RequestAction';
 import UserNavigation from './UserNavigation';
 import RequestContainer from './common/RequestContainer';
 import Loading from './Loading';
 import Authentication from '../actions/AuthActions';
-import Modal from './Modal';
-import RequestForm from './RequestForm';
 import Footer from './common/Footer';
 /**
  * @class UserDashboard
  */
 export class UserDashboard extends Component {
-  state = {
-    requestModal: false,
-  }
+  state = {}
 
   componentDidMount = () => {
     const { fetchRequests } = this.props;
@@ -62,7 +59,6 @@ export class UserDashboard extends Component {
    */
   render() {
     const { requests } = this.props;
-    const { requestModal } = this.state;
     if (requests.loading) {
       return (
         <div>
@@ -75,21 +71,16 @@ export class UserDashboard extends Component {
         <div>
           <UserNavigation />
           <div className="container">
-            <a href="#">
-              <button
-                type="button"
-                className="right-btn btn"
-                onClick={this.showRequestModal}
-              >
+            <Link to="/new-request">
+              <a href="#">
+                <button
+                  type="button"
+                  className="right-btn btn"
+                >
             New Request
-              </button>
-            </a>
-            <Modal
-              onClose={this.showRequestModal}
-              show={requestModal}
-            >
-              <RequestForm handleSubmit={this.submitRequest} />
-            </Modal>
+                </button>
+              </a>
+            </Link>
             <div className="center-heading">
             You have not create any request, click on new request to send a new request
             </div>
@@ -103,21 +94,16 @@ export class UserDashboard extends Component {
       <div>
         <UserNavigation />
         <div className="container">
-          <a href="#">
-            <button
-              type="button"
-              className="right-btn btn"
-              onClick={this.showRequestModal}
-            >
+          <Link to="/new-request">
+            <a href="#">
+              <button
+                type="button"
+                className="right-btn btn"
+              >
             New Request
-            </button>
-          </a>
-          <Modal
-            onClose={this.showRequestModal}
-            show={requestModal}
-          >
-            <RequestForm handleSubmit={this.submitRequest} />
-          </Modal>
+              </button>
+            </a>
+          </Link>
           <div className="content-container">
             {requests.requests.map((request) => {
               if (request.currentstatus === 'pending') {

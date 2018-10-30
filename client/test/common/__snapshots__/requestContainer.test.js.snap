@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Guest Navigation render guest navigation correctly 1`] = `
+<div
+  className="curved-border"
+>
+  <h3 />
+  <p>
+    Status:
+     
+    <span>
+      <ion-icon
+        name="icon"
+      />
+    </span>
+    <span
+      className="create"
+    >
+      <Link
+        className="view-btn"
+        replace={false}
+        to="/request/undefined"
+      >
+        <ion-icon />
+        Details
+      </Link>
+    </span>
+  </p>
+</div>
+`;
