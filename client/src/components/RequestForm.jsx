@@ -69,6 +69,9 @@ class RequestForm extends Component {
             required
           />
           <p className="red-text">{error && error.title ? error.title[0] : ''}</p>
+          <p className="red-text">
+            {requests.error && requests.error.code === 409 ? requests.error.message : '' }
+          </p>
           <label htmlFor="Request details">Request Details</label>
           <textarea
             name="details"

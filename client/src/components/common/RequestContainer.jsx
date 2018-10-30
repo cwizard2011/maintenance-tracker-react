@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const RequestContainer = (props) => {
   const {
-    title, label, name, status
+    title, label, name, status, requestId
   } = props;
   return (
     <div className="curved-border">
@@ -16,10 +17,10 @@ const RequestContainer = (props) => {
           {status}
         </span>
         <span className="create">
-          <a href="#" className="view-btn">
+          <Link to={`/request/${requestId}`} className="view-btn">
             <ion-icon name={name} />
             Details
-          </a>
+          </Link>
 
         </span>
 
@@ -33,6 +34,7 @@ RequestContainer.propTypes = {
   label: PropTypes.string,
   name: PropTypes.string,
   status: PropTypes.string,
+  requestId: PropTypes.string
 };
 
 export default RequestContainer;
