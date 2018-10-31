@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table Row should render approved table row correctly 1`] = `
+<tr>
+  <td />
+  <td>
+    <span
+      className="label success right-text"
+    >
+      <ion-icon
+        name="done-all"
+      />
+      approved
+    </span>
+  </td>
+  <td>
+    Oct 31, 2018
+  </td>
+  <td>
+    <span
+      className="right-text"
+    >
+      <a
+        className="detail-btn pending"
+        role="presentation"
+      >
+        Details
+      </a>
+    </span>
+  </td>
+  <td>
+    <RequestButton
+      actionName="Approve"
+      buttonClass="detail-btn pending action-approve"
+      iconName="done-all"
+    />
+  </td>
+</tr>
+`;
+
+exports[`Table Row should render rejected table row correctly 1`] = `
+<tr>
+  <td />
+  <td>
+    <span
+      className="label danger right-text"
+    >
+      <ion-icon
+        name="close"
+      />
+      rejected
+    </span>
+  </td>
+  <td>
+    Oct 31, 2018
+  </td>
+  <td>
+    <span
+      className="right-text"
+    >
+      <a
+        className="detail-btn pending"
+        role="presentation"
+      >
+        Details
+      </a>
+    </span>
+  </td>
+</tr>
+`;
+
+exports[`Table Row should render resolved table row correctly 1`] = `
+<tr>
+  <td />
+  <td>
+    <span
+      className="label success right-text"
+    >
+      <ion-icon
+        name="build"
+      />
+      resolved
+    </span>
+  </td>
+  <td>
+    Oct 31, 2018
+  </td>
+  <td>
+    <span
+      className="right-text"
+    >
+      <a
+        className="detail-btn pending"
+        role="presentation"
+      >
+        Details
+      </a>
+    </span>
+  </td>
+</tr>
+`;
+
+exports[`Table Row should render table pending row correctly 1`] = `
+<tr>
+  <td />
+  <td>
+    <span
+      className="label pending right-text"
+    >
+      <ion-icon
+        name="pause"
+      />
+      pending
+    </span>
+  </td>
+  <td>
+    Oct 31, 2018
+  </td>
+  <td>
+    <span
+      className="right-text"
+    >
+      <a
+        className="detail-btn pending"
+        role="presentation"
+      >
+        Details
+      </a>
+    </span>
+  </td>
+  <td>
+    <RequestButton
+      actionName="Approve"
+      buttonClass="detail-btn pending action-approve"
+      iconName="done-all"
+    />
+    <RequestButton
+      actionName="Reject"
+      buttonClass="detail-btn danger action-reject"
+      iconName="close"
+    />
+  </td>
+</tr>
+`;

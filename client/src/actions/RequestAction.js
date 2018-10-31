@@ -2,7 +2,6 @@ import axios from 'axios';
 import toastr from 'toastr';
 import url from '../utils/config';
 
-
 /**
  * @class RequestAction
  */

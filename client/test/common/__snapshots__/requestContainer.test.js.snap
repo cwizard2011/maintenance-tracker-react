@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Guest Navigation render guest navigation correctly 1`] = `
+exports[`Request container render request container correctly 1`] = `
 <div
   className="curved-border"
 >

@@ -34,13 +34,6 @@ export class UserDashboard extends Component {
     return null;
   }
 
-  showRequestModal = () => {
-    this.setState({
-      ...this.state, // eslint-disable-line
-      requestModal: !this.state.requestModal, // eslint-disable-line
-    });
-  }
-
   /**
    * @param {*} request
    * @returns {*} object
@@ -58,7 +51,10 @@ export class UserDashboard extends Component {
    * @returns {*} jsx
    */
   render() {
-    const { requests } = this.props;
+    const { user, requests, history } = this.props;
+    if (user && user.user_role !== 'user') {
+      return history.push('/');
+    }
     if (requests.loading) {
       return (
         <div>
@@ -168,12 +164,14 @@ UserDashboard.propTypes = {
   fetchRequests: PropTypes.func,
   requests: PropTypes.instanceOf(Object),
   postRequest: PropTypes.func,
-  history: PropTypes.func
+  history: PropTypes.instanceOf(Object),
+  user: PropTypes.instanceOf(Object)
 
 };
 const mapStateToProps = state => ({
   requests: state.requestReducer,
-  auth: state.authReducer.isAuthenticated
+  auth: state.authReducer.isAuthenticated,
+  user: state.authReducer.user
 });
 
 const matchDispatchToProps = dispatch => bindActionCreators({
