@@ -30,7 +30,7 @@ exports[`Table Row should render approved table row correctly 1`] = `
   </td>
   <td>
     <RequestButton
-      actionName="Approve"
+      actionName="Resolve"
       buttonClass="detail-btn pending action-approve"
       iconName="done-all"
     />

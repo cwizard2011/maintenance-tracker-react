@@ -8,6 +8,8 @@ const mockStore = configureMockStore([thunk]);
 
 const props = {
   fetchAllRequests: jest.fn(),
+  requestAction: jest.fn(),
+  postLoading: false,
   loading: false,
   requests: {
     requests: [
@@ -48,12 +50,21 @@ describe('Request Table', () => {
   it('render request table correctly', () => {
     const wrapper = shallow(<RequestTable {...props} />);
     expect(wrapper).toMatchSnapshot();
-    expect(wrapper.find('div').length).toEqual(3);
+    expect(wrapper.find('div').length).toEqual(5);
   });
   it('render loading when the page is loading', () => {
     const newProps = {
       fetchAllRequests: jest.fn(),
       loading: true,
+    };
+    const wrapper = shallow(<RequestTable {...newProps} />);
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('Loading')).toBeTruthy();
+  });
+  it('render postLoading when the request action post is loading', () => {
+    const newProps = {
+      ...props,
+      postLoading: true,
     };
     const wrapper = shallow(<RequestTable {...newProps} />);
     expect(wrapper).toMatchSnapshot();

@@ -72,6 +72,22 @@ const requestReducer = (state = initialState, action) => {
         postLoading: false,
         error: action.error
       };
+    case 'REQUEST_ACTION_BEGINS':
+      return {
+        ...state,
+        postLoading: true
+      };
+    case 'REQUEST_ACTION_SUCCESSFUL':
+      return {
+        ...state,
+        postLoading: false
+      };
+    case 'REQUEST_ACTION_FAILS':
+      return {
+        ...state,
+        postLoading: false,
+        error: action.error
+      };
     default:
       return state;
   }

@@ -79,7 +79,7 @@ class TableRow extends Component {
               buttonClass="detail-btn pending action-approve"
               handleClick={resolveRequest(request)}
               iconName="done-all"
-              actionName="Approve"
+              actionName="Resolve"
             />
           </td>
         </tr>

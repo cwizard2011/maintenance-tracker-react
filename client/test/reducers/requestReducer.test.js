@@ -167,4 +167,38 @@ describe('Auth reducer', () => {
     const newState = requestReducer(initialState, action);
     expect(newState).toEqual(expected);
   });
+
+  //
+  it('should update the state when REQUEST_ACTION_BEGINS is passed', () => {
+    const action = {
+      type: 'REQUEST_ACTION_BEGINS',
+    };
+    const expected = {
+      ...initialState, postLoading: true
+    };
+    const newState = requestReducer(initialState, action);
+    expect(newState).toEqual(expected);
+  });
+  it('should update the state when REQUEST_ACTION_SUCCESSFUL is passed', () => {
+    const action = {
+      type: 'REQUEST_ACTION_SUCCESSFUL',
+    };
+    const expected = {
+      ...initialState, postLoading: false
+    };
+    const newState = requestReducer(initialState, action);
+    expect(newState).toEqual(expected);
+  });
+  it('should update the state when REQUEST_ACTION_FAILS is passed', () => {
+    const editError = {};
+    const action = {
+      type: 'REQUEST_ACTION_FAILS',
+      error: editError
+    };
+    const expected = {
+      ...initialState, postLoading: false, error: editError
+    };
+    const newState = requestReducer(initialState, action);
+    expect(newState).toEqual(expected);
+  });
 });
