@@ -9,6 +9,9 @@ const mockStore = configureMockStore([thunk]);
 const props = {
   fetchSingleRequest: jest.fn(),
   handleSubmit: jest.fn(),
+  history: {
+    push: jest.fn()
+  },
   request: {
     postLoading: false,
     error: {

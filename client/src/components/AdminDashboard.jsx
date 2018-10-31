@@ -21,7 +21,7 @@ export class AdminDashboard extends Component {
       <div>
         <UserNavigation />
         <div className="container">
-          <RequestTable />
+          <RequestTable history={history} />
         </div>
         <Footer />
       </div>
@@ -30,7 +30,7 @@ export class AdminDashboard extends Component {
 }
 AdminDashboard.propTypes = {
   userRole: PropTypes.string,
-  history: PropTypes.instanceOf(Object)
+  history: PropTypes.instanceOf(Object),
 };
 const mapStateToProps = state => ({
   userRole: state.authReducer.user.user_role,

@@ -10,7 +10,7 @@
     "start": "node index.js",
     "lint": "eslint ./src/index.js",
     "dev-server": "webpack-dev-server --config webpack.config.dev.js --watch --open --hot",
-    "test": "jest --config=jest.config.json client/test --coverage cli"
+    "test": "jest --config=jest.config.json client/test --coverage"
   },
   "author": "Adeoye Peter Adeola",
   "license": "MIT",
@@ -59,6 +59,7 @@
     "babel-loader": "^8.0.4",
     "babel-plugin-add-module-exports": "^1.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "coveralls": "^3.0.2",
     "css-loader": "^1.0.0",
     "enzyme-to-json": "^3.3.4",
     "eslint": "^5.6.1",

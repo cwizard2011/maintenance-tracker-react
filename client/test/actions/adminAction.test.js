@@ -70,4 +70,28 @@ describe('Request Action', () => {
       });
     done();
   });
+  it('should dispatch REQUEST_ACTION_SUCCESSFUL when an action is successful', (done) => {
+    const requestId = 5;
+    const action = 'resolve';
+    const history = '/';
+    moxios.stubRequest(`${config.apiUrl}/requests/${requestId}/${action}`, {
+      status: 200,
+      response: response.data
+    });
+
+    const expectedActions = [
+      {
+        type: 'REQUEST_ACTION_BEGINS'
+      },
+      {
+        type: 'REQUEST_ACTION_SUCCESSFUL'
+      }
+    ];
+    const store = mockStore({});
+    store.dispatch(AdminAction.requestActions(requestId, action, history))
+      .then(() => {
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+    done();
+  });
 });
