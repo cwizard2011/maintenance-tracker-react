@@ -1,0 +1,283 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User Dashboard render connected component 1`] = `
+<UserDashboard
+  fetchRequests={[Function]}
+  history={
+    Object {
+      "push": [MockFunction] {
+        "calls": Array [
+          Array [
+            "/",
+          ],
+          Array [
+            "/",
+          ],
+          Array [
+            "/",
+          ],
+          Array [
+            "/",
+          ],
+          Array [
+            "/",
+          ],
+        ],
+        "results": Array [
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+          Object {
+            "isThrow": false,
+            "value": undefined,
+          },
+        ],
+      },
+    }
+  }
+  logout={[Function]}
+  postRequest={[Function]}
+  requests={
+    Object {
+      "requests": Object {},
+    }
+  }
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+  user={
+    Object {
+      "user_role": "admin",
+    }
+  }
+/>
+`;
+
+exports[`User Dashboard render loading when the page is loading 1`] = `
+<div>
+  <Connect(UserNavigation) />
+  <Loading />
+</div>
+`;
+
+exports[`User Dashboard render no request div if there is no request 1`] = `
+<div>
+  <Connect(UserNavigation) />
+  <div
+    className="container"
+  >
+    <Link
+      replace={false}
+      to="/new-request"
+    >
+      <a
+        href="#"
+      >
+        <button
+          className="right-btn btn"
+          type="button"
+        >
+          New Request
+        </button>
+      </a>
+    </Link>
+    <div
+      className="center-heading"
+    >
+      You have not create any request, click on new request to send a new request
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`User Dashboard render user dashboard correctly 1`] = `
+<div>
+  <Connect(UserNavigation) />
+  <div
+    className="container"
+  >
+    <Link
+      replace={false}
+      to="/new-request"
+    >
+      <a
+        href="#"
+      >
+        <button
+          className="right-btn btn"
+          type="button"
+        >
+          New Request
+        </button>
+      </a>
+    </Link>
+    <div
+      className="content-container"
+    >
+      <div
+        key="b50b13ef-f8f8-4b99-a33c-0d3a159f320b"
+      >
+        <RequestContainer
+          icon="pause"
+          label="label pending"
+          requestId="b50b13ef-f8f8-4b99-a33c-0d3a159f320b"
+          status="pending"
+          title="Test request"
+        />
+      </div>
+      <div
+        key="b50b13eg-f8f8-4b99-a33c-0d3a159f320b"
+      >
+        <RequestContainer
+          icon="done-all"
+          label="label success"
+          requestId="b50b13eg-f8f8-4b99-a33c-0d3a159f320b"
+          status="approved"
+          title="Test request1"
+        />
+      </div>
+      <div
+        key="b50b13eg-f8f8-4b99-a33c-0d3a159f320b"
+      >
+        <RequestContainer
+          icon="build"
+          label="label success"
+          requestId="b50b13eg-f8f8-4b99-a33c-0d3a159f320b"
+          status="resolved"
+          title="Test request1"
+        />
+      </div>
+      <div
+        key="b50b13eg-f8f8-4b99-a33c-0d3a159f320b"
+      >
+        <RequestContainer
+          icon="close"
+          label="label danger"
+          requestId="b50b13eg-f8f8-4b99-a33c-0d3a159f320b"
+          status="rejected"
+          title="Test request1"
+        />
+      </div>
+    </div>
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`User Dashboard should redirect to to home if not user 1`] = `""`;
+
+exports[`User Dashboard should return null for getDerivedstate for authenticated user 1`] = `
+<div>
+  <Connect(UserNavigation) />
+  <div
+    className="container"
+  >
+    <Link
+      replace={false}
+      to="/new-request"
+    >
+      <a
+        href="#"
+      >
+        <button
+          className="right-btn btn"
+          type="button"
+        >
+          New Request
+        </button>
+      </a>
+    </Link>
+    <div
+      className="content-container"
+    >
+      <div
+        key="b50b13ef-f8f8-4b99-a33c-0d3a159f320b"
+      >
+        <RequestContainer
+          icon="pause"
+          label="label pending"
+          requestId="b50b13ef-f8f8-4b99-a33c-0d3a159f320b"
+          status="pending"
+          title="Test request"
+        />
+      </div>
+      <div
+        key="b50b13eg-f8f8-4b99-a33c-0d3a159f320b"
+      >
+        <RequestContainer
+          icon="done-all"
+          label="label success"
+          requestId="b50b13eg-f8f8-4b99-a33c-0d3a159f320b"
+          status="approved"
+          title="Test request1"
+        />
+      </div>
+      <div
+        key="b50b13eg-f8f8-4b99-a33c-0d3a159f320b"
+      >
+        <RequestContainer
+          icon="build"
+          label="label success"
+          requestId="b50b13eg-f8f8-4b99-a33c-0d3a159f320b"
+          status="resolved"
+          title="Test request1"
+        />
+      </div>
+      <div
+        key="b50b13eg-f8f8-4b99-a33c-0d3a159f320b"
+      >
+        <RequestContainer
+          icon="close"
+          label="label danger"
+          requestId="b50b13eg-f8f8-4b99-a33c-0d3a159f320b"
+          status="rejected"
+          title="Test request1"
+        />
+      </div>
+    </div>
+  </div>
+  <Footer />
+</div>
+`;

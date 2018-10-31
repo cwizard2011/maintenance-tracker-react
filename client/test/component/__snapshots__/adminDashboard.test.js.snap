@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Admin dashboard render admin dashboard correctly 1`] = `
+<div>
+  <Connect(UserNavigation) />
+  <div
+    className="container"
+  >
+    <Connect(RequestTable) />
+  </div>
+  <Footer />
+</div>
+`;
+
+exports[`Admin dashboard render connected component 1`] = `
+<AdminDashboard
+  dispatch={[Function]}
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+  userRole="admin"
+/>
+`;
+
+exports[`Admin dashboard render redirect non admin 1`] = `""`;

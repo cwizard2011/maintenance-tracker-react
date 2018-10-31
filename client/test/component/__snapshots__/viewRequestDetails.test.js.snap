@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Table Row should render approved details correctly 1`] = `
+<div
+  className="copy"
+>
+  <ViewInfo
+    date="Oct 30, 2018"
+    details="new details"
+    email="petti4eva@gmail.com"
+    requestId="1"
+    sender="peter"
+    title="new title"
+  />
+  <LabelTag
+    labelName="done-all"
+    pClass="label success"
+    status="approved"
+  />
+</div>
+`;
+
+exports[`Table Row should render pending details correctly 1`] = `
+<div
+  className="copy"
+>
+  <ViewInfo
+    date="Oct 30, 2018"
+    details="new details"
+    email="petti4eva@gmail.com"
+    requestId="1"
+    sender="peter"
+    title="new title"
+  />
+  <LabelTag
+    labelName="pause"
+    pClass="label pending"
+    status="pending"
+  />
+</div>
+`;
+
+exports[`Table Row should render rejected details correctly 1`] = `
+<div
+  className="copy"
+>
+  <ViewInfo
+    date="Oct 30, 2018"
+    details="new details"
+    email="petti4eva@gmail.com"
+    requestId="1"
+    sender="peter"
+    title="new title"
+  />
+  <LabelTag
+    labelName="close"
+    pClass="label danger"
+    status="rejected"
+  />
+</div>
+`;
+
+exports[`Table Row should render resolved details correctly 1`] = `
+<div
+  className="copy"
+>
+  <ViewInfo
+    date="Oct 30, 2018"
+    details="new details"
+    email="petti4eva@gmail.com"
+    requestId="1"
+    sender="peter"
+    title="new title"
+  />
+  <LabelTag
+    labelName="build"
+    pClass="label success"
+    status="resolved"
+  />
+</div>
+`;

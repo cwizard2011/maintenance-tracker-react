@@ -28,11 +28,11 @@ class HomeBody extends Component {
   }
 
   burgerToggle = () => {
-    this.linksEl = document.querySelector('.narrowLinks');
-    if (this.linksEl.style.display === 'block') {
-      this.linksEl.style.display = 'none';
+    const linksEl = document.querySelector('.narrowLinks');
+    if (linksEl.style.display === 'block') {
+      linksEl.style.display = 'none';
     } else {
-      this.linksEl.style.display = 'block';
+      linksEl.style.display = 'block';
     }
   }
 

@@ -7,7 +7,14 @@
   "testPathIgnorePatterns": [
     "<rootDir>/node_modules/"
   ],
-  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "client/src/**/*.{jsx}",
+    "client/src/**/*.{js}",
+    "!**/client/src/utils/**",
+    "!**/client/src/app.jsx",
+    "!**/client/src/store/configureStore.js",
+    "!**/index.js"
+  ],
   "moduleNameMapper": {
     "\\.(gif|ttf|eot|svg|png|jpg|jpeg|css|sass|scss)$": "<rootDir>./client/test/__mocks__/fileMock.js"
   }

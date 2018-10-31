@@ -10,7 +10,7 @@
     "start": "node index.js",
     "lint": "eslint ./src/index.js",
     "dev-server": "webpack-dev-server --config webpack.config.dev.js --watch --open --hot",
-    "test": "jest --config=jest.config.json client/test --coverage"
+    "test": "jest --config=jest.config.json client/test --coverage cli"
   },
   "author": "Adeoye Peter Adeola",
   "license": "MIT",

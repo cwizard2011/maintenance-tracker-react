@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`View Info and Label Tag render Label Tag correctly 1`] = `
+<div>
+  <label
+    htmlFor="status"
+  >
+    Status
+  </label>
+  <p>
+    <span>
+      <ion-icon />
+    </span>
+  </p>
+</div>
+`;
+
+exports[`View Info and Label Tag render View Info correctly 1`] = `
+<div>
+  <div>
+    <label
+      htmlFor="id"
+    >
+      Request Id
+    </label>
+    <p />
+  </div>
+  <div>
+    <label
+      htmlFor="sender"
+    >
+      Sender
+    </label>
+    <p />
+  </div>
+  <div>
+    <label
+      htmlFor="title"
+    >
+      Title
+    </label>
+    <p />
+  </div>
+  <div>
+    <label
+      htmlFor="email"
+    >
+      Email
+    </label>
+    <p />
+  </div>
+  <div>
+    <label
+      htmlFor="details"
+    >
+      Details
+    </label>
+    <p />
+  </div>
+  <div>
+    <label
+      htmlFor="date"
+    >
+      Date
+    </label>
+    <p>
+      Oct 31, 2018
+    </p>
+  </div>
+</div>
+`;

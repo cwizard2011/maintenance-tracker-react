@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import appReducer from '../reducers/index';
+import rootReducer from '../reducers/index';
 
 const middleware = process.env.NODE_ENV
  === 'development' ? composeWithDevTools(applyMiddleware(thunk)) : applyMiddleware(thunk);
@@ -14,7 +14,7 @@ const middleware = process.env.NODE_ENV
  * @returns {Object} - Object containing data in redux store
  */
 const store = createStore(
-  appReducer,
+  rootReducer,
   middleware
 );
 

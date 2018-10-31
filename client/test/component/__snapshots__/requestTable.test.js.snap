@@ -1,0 +1,165 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Request Table render connected component 1`] = `
+<RequestTable
+  fetchAllRequests={[Function]}
+  requests={
+    Object {
+      "requests": Object {},
+    }
+  }
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+  storeSubscription={
+    Subscription {
+      "listeners": Object {
+        "clear": [Function],
+        "get": [Function],
+        "notify": [Function],
+        "subscribe": [Function],
+      },
+      "onStateChange": [Function],
+      "parentSub": undefined,
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+      "unsubscribe": [Function],
+    }
+  }
+/>
+`;
+
+exports[`Request Table render loading when the page is loading 1`] = `<Loading />`;
+
+exports[`Request Table render loading when the page is loading 2`] = `
+<div
+  className="min-container"
+>
+  <div>
+    <div
+      className="center"
+    >
+      <h2>
+        No request in the database for now
+      </h2>
+    </div>
+    <div>
+      <Modal
+        onClose={[Function]}
+        show={false}
+      >
+        <ViewRequestDetail
+          sender="undefined undefined"
+        />
+      </Modal>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Request Table render request table correctly 1`] = `
+<div
+  className="min-container"
+>
+  <div>
+    <table
+      role="table"
+    >
+      <thead
+        role="presentation"
+      >
+        <tr
+          role="row"
+        >
+          <th
+            role="columnheader"
+          >
+            Title
+          </th>
+          <th
+            role="columnheader"
+          >
+            Status
+          </th>
+          <th
+            role="columnheader"
+          >
+            Date
+          </th>
+          <th
+            role="columnheader"
+          >
+            Details
+          </th>
+          <th
+            role="columnheader"
+          >
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <TableRow
+          approveRequest={[Function]}
+          key="b50b13ef-f8f8-4b99-a33c-0d3a159f320b"
+          rejectRequest={[Function]}
+          request={
+            Object {
+              "created_at": "2018-10-30T13:32:54.578Z",
+              "currentstatus": "pending",
+              "details": "testing now",
+              "request_id": "b50b13ef-f8f8-4b99-a33c-0d3a159f320b",
+              "title": "Test request",
+              "updated_at": "2018-10-30T13:32:54.578Z",
+              "user_id": "48a698a0-1641-5aca-bc1b-de9b1a482ee1",
+            }
+          }
+          resolveRequest={[Function]}
+          viewDetails={[Function]}
+        />
+        <TableRow
+          approveRequest={[Function]}
+          key="b50b13eg-f8f8-4b99-a33c-0d3a159f320b"
+          rejectRequest={[Function]}
+          request={
+            Object {
+              "created_at": "2018-10-30T13:32:54.578Z",
+              "currentstatus": "pending",
+              "details": "testing now1",
+              "request_id": "b50b13eg-f8f8-4b99-a33c-0d3a159f320b",
+              "title": "Test request1",
+              "updated_at": "2018-10-30T13:32:54.578Z",
+              "user_id": "48a698a0-1641-5aca-bc1b-de9b1a482ee1",
+            }
+          }
+          resolveRequest={[Function]}
+          viewDetails={[Function]}
+        />
+      </tbody>
+    </table>
+    <div>
+      <Modal
+        onClose={[Function]}
+        show={false}
+      >
+        <ViewRequestDetail
+          sender="undefined undefined"
+        />
+      </Modal>
+    </div>
+  </div>
+</div>
+`;

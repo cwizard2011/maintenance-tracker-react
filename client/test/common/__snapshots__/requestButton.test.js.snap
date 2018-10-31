@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Request button render request button correctly 1`] = `
+<span
+  className="right-text"
+>
+  <button
+    type="button"
+  >
+    <ion-icon />
+  </button>
+</span>
+`;
