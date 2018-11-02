@@ -78,7 +78,7 @@ export class UserDashboard extends Component {
               </a>
             </Link>
             <div className="center-heading">
-            You have not create any request, click on new request to send a new request
+              <h3>You have not create any request, click on new request to send a new request</h3>
             </div>
           </div>
           <Footer />

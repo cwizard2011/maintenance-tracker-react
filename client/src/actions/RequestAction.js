@@ -44,7 +44,7 @@ export default class RequestAction {
       dispatch({ type: 'POST_REQUESTS_BEGINS' });
       return axios.post(`${url.apiUrl}/users/requests`, request)
         .then((response) => {
-          const { message } = response.data.data;
+          const { message } = response.data;
           toastr.success(message);
           dispatch({
             type: 'POST_REQUESTS',
@@ -101,7 +101,7 @@ export default class RequestAction {
       dispatch({ type: 'EDIT_REQUEST_BEGINS' });
       return axios.put(`${url.apiUrl}/users/requests/${requestId}`, update)
         .then((response) => {
-          const { message } = response.data.data;
+          const { message } = response.data;
           toastr.success(message);
           dispatch({
             type: 'EDIT_REQUEST',

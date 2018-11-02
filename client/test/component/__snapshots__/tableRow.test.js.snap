@@ -14,7 +14,7 @@ exports[`Table Row should render approved table row correctly 1`] = `
     </span>
   </td>
   <td>
-    Oct 31, 2018
+    Nov 1, 2018
   </td>
   <td>
     <span
@@ -52,7 +52,7 @@ exports[`Table Row should render rejected table row correctly 1`] = `
     </span>
   </td>
   <td>
-    Oct 31, 2018
+    Nov 1, 2018
   </td>
   <td>
     <span
@@ -83,7 +83,7 @@ exports[`Table Row should render resolved table row correctly 1`] = `
     </span>
   </td>
   <td>
-    Oct 31, 2018
+    Nov 1, 2018
   </td>
   <td>
     <span
@@ -114,7 +114,7 @@ exports[`Table Row should render table pending row correctly 1`] = `
     </span>
   </td>
   <td>
-    Oct 31, 2018
+    Nov 1, 2018
   </td>
   <td>
     <span
